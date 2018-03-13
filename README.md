@@ -5,6 +5,10 @@ Serial port command line test application for Maxim's MAX3510x time-to-digitial 
 
 This firmware can be used with the MAX32625MBED board mated to a MAX35104EVKIT2 Arduino shield.
 
+https://www.maximintegrated.com/en/products/microcontrollers/MAX32625MBED.html
+
+![alt text](https://github.com/maxim-ic-flow/tdc_test/blob/master/docs/readme_images/max32625mbed_max35104.jpg "MAX32625MBED + MAX35104EVKIT2")
+
 The serial port interface on the MAX32625MBED HDK USB port is used to provide a command-line like
 interface for configuring and testing the MAX35104 TDC.
 

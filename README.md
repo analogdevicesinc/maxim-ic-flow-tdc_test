@@ -3,7 +3,10 @@ Serial port command line test application for Maxim's MAX3510x time-to-digitial 
 
 ## Overview
 
-TODO
+This firmware can be used with the MAX32625MBED board mated to a MAX35104EVKIT2 Arduino shield.
+
+The serial port interface on the MAX32625MBED HDK USB port is used to provide a command-line like
+interface for configuring and testing the MAX35104 TDC.
 
 ## Repository
 
@@ -28,4 +31,59 @@ git submodule update --recursive --remote --init
 <p>https://www.rowley.co.uk/arm/index.htm
 
 <b>Makefile with user supplied ARM GCC toolchain 
+
+## Building
+
+The makefile in the GCC directiory can be used to generate elf and bin images with the user provided toolchain.
+
+```
+make [clean|release]
+```
+
+In the case of a release build, the resulting tdc_test.bin file can be dragged and dropped onto the DAPLINK mass
+storage device provided by the MAX32625MBED HDK USB interface.
+
+The project files for uVision and CrossWorks are in the keil and cw subdirectories and can be built and programmed
+as normal for those platforms.  Note that the MAX32625MBED board provides a CMSIS-DAP SWD debugging interface.
+You must conifugre your debugger accordingly.
+
+## Running tdc_test
+
+Once the image is programmed, you can use PuTTY or similar serial port tool to connect with the MAX32625MBED board.
+
+![alt text](https://github.com/maxim-ic-flow/tdc_test/blob/master/docs/readme_images/putty.jpg "Serial port command line interface via PuTTY")
+
+type 'help' for a list of all commands.  Most of the commands mirror TDC registers.  Refer to the MAX35104 datasheet for details.
+
+https://datasheets.maximintegrated.com/en/ds/MAX35104.pdf
+
+## Quick Start
+
+The 'tof_diff' command will perform a basic bi-direction time measurement.  Using this command along with an oscilloscope will alow you to inspect
+the relvant signals on the MAX35104EVKIT2 Arduino shield in order to start dialing in your transducer configuration.  The result of a successful
+measurement looks like this:
+
+
+Be sure that your in 'idle' mode when executing individual TDC commands (see next section).
+
+## Modes of operation
+
+tdc_test provides three modes of operation:
+
+idle - no automated TDC command sequecing.  This allows the user to issue individual TDC commands and immediately see the results.
+host - the host processor provides command timing via the 'sampling' command.  This allows higher sampling rates that can be achived in event mode.
+event - uses the event processor inside the MAX35104 to perform TDC command sequencing
+
+The mode of operation can be selected with the 'mode' command.
+
+Other non-register commands:
+
+spi_test - helps with basic SPI bus debugging.
+tof_temp - specifies the number of Time-Of-Flight commands per temperature command when in 'host' mode.
+default -  restore defaults as described in transducer.c
+sampling - frequency (Hz) of sampling when in 'host' mode.
+report - dumps the contents of the hit registers in both directions and the temperature registers.  Useful for data collection.
+dc - dumps the value of all settings for easy inspection
+
+
 

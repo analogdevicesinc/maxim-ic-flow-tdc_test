@@ -1,0 +1,10 @@
+iar/
+keil/
+BUILD/
+mbed-os/
+*.pyc
+se/
+dbg/
+.mbed
+*.docx
+

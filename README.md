@@ -7,7 +7,7 @@ This firmware can be used with the MAX32625MBED board mated to a MAX35104EVKIT2 
 
 https://www.maximintegrated.com/en/products/microcontrollers/MAX32625MBED.html
 
-![alt text](https://github.com/maxim-ic-flow/tdc_test/blob/master/docs/readme_images/max32625mbed_max35104.jpg "MAX32625MBED + MAX35104EVKIT2")
+![alt text](https://github.com/maxim-ic-flow/tdc_test/blob/master/readme_images/max32625mbed_max35104.jpg "MAX32625MBED + MAX35104EVKIT2")
 
 The serial port interface on the MAX32625MBED HDK USB port is used to provide a command-line like
 interface for configuring and testing the MAX35104 TDC.
@@ -34,7 +34,7 @@ git submodule update --recursive --remote --init
 <b>Rowley CrossWorks for ARM V4.1+</b>
 <p>https://www.rowley.co.uk/arm/index.htm
 
-<b>Makefile with user supplied ARM GCC toolchain 
+<b>Makefile with user supplied ARM GCC toolchain</b>
 
 ## Building
 
@@ -55,7 +55,7 @@ You must conifugre your debugger accordingly.
 
 Once the image is programmed, you can use PuTTY or similar serial port tool to connect with the MAX32625MBED board.
 
-![alt text](https://github.com/maxim-ic-flow/tdc_test/blob/master/docs/readme_images/putty.jpg "Serial port command line interface via PuTTY")
+![alt text](https://github.com/maxim-ic-flow/tdc_test/blob/master/readme_images/putty.jpg "Serial port command line interface via PuTTY")
 
 type 'help' for a list of all commands.  Most of the commands mirror TDC registers.  Refer to the MAX35104 datasheet for details.
 

@@ -78,7 +78,7 @@ The 'help' command provides basic usage information.  See the source for more sp
 ## Quick Start
 
 The 'tof_diff' command will perform a basic bi-direction time measurement.  Using this command along with an oscilloscope will allow you to inspect
-the relvant signals on the MAX35104EVKIT2 Arduino shield in order to start dialing in your transducer configuration.  The result of a successful
+the relevant signals on the MAX35104EVKIT2 Arduino shield in order to start dialing in your transducer configuration.  The result of a successful
 measurement looks like this:
 
 ![alt text](https://github.com/maxim-ic-flow/tdc_test/blob/master/readme_images/tof_diff.jpg "TOF_DIFF command results")
@@ -89,9 +89,9 @@ Be sure that your mode=idle when executing individual TDC commands (see next sec
 
 tdc_test provides three modes of operation:
 
-idle - no automated TDC command sequecing.  This allows the user to issue individual TDC commands and immediately see the results.
-host - the host processor provides command timing via the 'sampling' command.  This allows higher sampling rates that can be achived in event mode.
-event - uses the event processor inside the MAX35104 to perform TDC command sequencing
+<p>idle - no automated TDC command sequecing.  This allows the user to issue individual TDC commands and immediately see the results.
+<p>host - the host processor provides command timing via the 'sampling' command.  This allows higher sampling rates that can be achived in event mode.
+<p>event - uses the event processor inside the MAX35104 to perform TDC command sequencing
 
 The mode of operation can be selected with the 'mode' command.
 
@@ -104,12 +104,12 @@ The mode of operation can be selected with the 'mode' command.
 
 Other non-register commands:
 
-spi_test - helps with basic SPI bus debugging.
-tof_temp - specifies the number of Time-Of-Flight commands per temperature command when in 'host' mode.
-default -  restore defaults as described in transducer.c
-sampling - frequency (Hz) of sampling when in 'host' mode.
-report - dumps the contents of the hit registers in both directions and the temperature registers.  Useful for data collection.
-dc - dumps the value of all settings for easy inspection
+<p>spi_test - helps with basic SPI bus debugging.
+<p>tof_temp - specifies the number of Time-Of-Flight commands per temperature command when in 'host' mode.
+<p>default  -  restore defaults as described in transducer.c
+<p>sampling - frequency (Hz) of sampling when in 'host' mode.
+<p>report   - dumps the contents of the hit registers in both directions and the temperature registers.  Useful for data collection.
+<p>dc       - dumps the value of all settings for easy inspection
 
 
 

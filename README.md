@@ -1,11 +1,15 @@
 # TDC Test
-Serial port command line test application for Maxim's MAX3510x time-to-digitial converters
+A serial port command line test application for Maxim's MAX3510x time-to-digitial converters.  
 
 ## Overview
 
-This firmware can be used with the MAX32625MBED board mated to a MAX35104EVKIT2 Arduino shield.
+This firmware can be used with the MAX32625MBED board mated to a MAX35104EVKIT2 Arduino shield.  The purpose of the firmware
+is not only to provide a register-level interface to the MAX35104, but also to serve as a code reference and starting point for 
+prototyping work.
 
-https://www.maximintegrated.com/en/products/microcontrollers/MAX32625MBED.html
+The MAX32625MBED board:  https://www.maximintegrated.com/en/products/microcontrollers/MAX32625MBED.html
+
+The MAX35104EVKIT2 board:  <comming soon>
 
 ![alt text](https://github.com/maxim-ic-flow/tdc_test/blob/master/readme_images/max32625mbed_max35104.jpg "MAX32625MBED + MAX35104EVKIT2")
 
@@ -89,8 +93,8 @@ Be sure that your mode=idle when executing individual TDC commands (see next sec
 
 tdc_test provides three modes of operation:
 
-<p>idle - no automated TDC command sequecing.  This allows the user to issue individual TDC commands and immediately see the results.
-<p>host - the host processor provides command timing via the 'sampling' command.  This allows higher sampling rates that can be achived in event mode.
+<p>idle - no automated TDC command sequencing.  This allows the user to issue individual TDC commands and immediately see the results.
+<p>host - the host processor provides command timing via the 'sampling' command.  This allows higher sampling rates that can be achieve in event mode.
 <p>event - uses the event processor inside the MAX35104 to perform TDC command sequencing
 
 The mode of operation can be selected with the 'mode' command.
@@ -102,14 +106,25 @@ The mode of operation can be selected with the 'mode' command.
 > mode?
 ```
 
-Other non-register commands:
+</b>Other non-register commands:
 
-<p>spi_test - helps with basic SPI bus debugging.
-<p>tof_temp - specifies the number of Time-Of-Flight commands per temperature command when in 'host' mode.
-<p>default  -  restore defaults as described in transducer.c
-<p>sampling - frequency (Hz) of sampling when in 'host' mode.
-<p>report   - dumps the contents of the hit registers in both directions and the temperature registers.  Useful for data collection.
-<p>dc       - dumps the value of all settings for easy inspection
+<p><b>spi_test</b> - helps with basic SPI bus debugging.
+<p><b>tof_temp</b> - specifies the number of Time-Of-Flight commands per temperature command when in 'host' mode.
+<p><b>default</b>  -  restore defaults as described in transducer.c
+<p><b>sampling</b> - frequency (Hz) of sampling when in 'host' mode.
+<p><b>report</b>   - dumps the contents of the hit registers in both directions and the temperature registers.  Useful for data collection.
+<p><b>dc</b>       - dumps the value of all settings for easy inspection
+
+## Related Tools
+
+The MAX35104EVKIT provides a high-level Windows GUI for interacting with the MAX35104 chip without the need to compile firmware.
+
+https://www.maximintegrated.com/en/products/analog/data-converters/analog-front-end-ics/MAX35104EVKIT.html
+
+
+Note that the MAX35104EVKIT is not earlier version of the MAX35104EVIT2 described here.  It is a seperate kit with different capabilities
+may be more appropriate for initial evaluation.
+
 
 
 

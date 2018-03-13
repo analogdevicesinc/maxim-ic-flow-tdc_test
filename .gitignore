@@ -1,10 +1,7 @@
 iar/
 keil/
-BUILD/
-mbed-os/
-*.pyc
+cw/
 se/
-dbg/
-.mbed
+build/
 *.docx
 

@@ -61,14 +61,29 @@ type 'help' for a list of all commands.  Most of the commands mirror TDC registe
 
 https://datasheets.maximintegrated.com/en/ds/MAX35104.pdf
 
+Many register-specific commands can take arguments.  For example to set the TDC delay register, you can use:
+
+```
+> dly=200
+```
+
+To query the curreent delay register value, use:
+
+```
+> dly?
+```
+
+The 'help' command provides basic usage information.  See the source for more specific usage and functional information.
+
 ## Quick Start
 
-The 'tof_diff' command will perform a basic bi-direction time measurement.  Using this command along with an oscilloscope will alow you to inspect
+The 'tof_diff' command will perform a basic bi-direction time measurement.  Using this command along with an oscilloscope will allow you to inspect
 the relvant signals on the MAX35104EVKIT2 Arduino shield in order to start dialing in your transducer configuration.  The result of a successful
 measurement looks like this:
 
+![alt text](https://github.com/maxim-ic-flow/tdc_test/blob/master/readme_images/tof_diff.jpg "TOF_DIFF command results")
 
-Be sure that your in 'idle' mode when executing individual TDC commands (see next section).
+Be sure that your mode=idle when executing individual TDC commands (see next section).
 
 ## Modes of operation
 
@@ -79,6 +94,13 @@ host - the host processor provides command timing via the 'sampling' command.  T
 event - uses the event processor inside the MAX35104 to perform TDC command sequencing
 
 The mode of operation can be selected with the 'mode' command.
+
+```
+> mode=idle
+> mode=host
+> mode=event
+> mode?
+```
 
 Other non-register commands:
 
